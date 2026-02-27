@@ -55,25 +55,25 @@ script script_drum_samurai_demo_cutscene_main
     dmi_event01 1
     beat_anim
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     rest 6
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 128
+    dmi_event01 16
     beat_anim
     rest 6
     rest 6
     dmi_event01 1
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     rest 6
     beat_anim
     rest 6
-    dmi_event01 128
-    rest 6
-    rest 6
     dmi_event01 16
+    rest 6
+    rest 6
+    dmi_event01 32
     rest 6
     dmi_event01 2
     beat_anim
@@ -81,7 +81,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 1
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     rest 6
     print_text_s D_0805df4c
     dmi_event01 256
@@ -93,7 +93,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -108,7 +108,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -123,7 +123,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -138,7 +138,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -153,7 +153,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -168,7 +168,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -183,7 +183,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -191,7 +191,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     rest 6
     clear_text_s
-    dmi_event01 32
+    dmi_event01 128
     beat_anim
     rest 6
     dmi_event01 1
@@ -199,13 +199,13 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
     dmi_event01 1
     rest 6
-    dmi_event01 128
+    dmi_event01 16
     rest 6
     print_text_s D_0805df88
     dmi_event01 256
@@ -217,7 +217,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -232,7 +232,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -247,7 +247,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -262,7 +262,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -277,7 +277,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 2
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
@@ -292,11 +292,11 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 1
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     beat_anim
     rest 6
     rest 6
-    dmi_event01 128
+    dmi_event01 16
     rest 6
     rest 6
     clear_text_s
@@ -311,15 +311,15 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     rest 6
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     rest 6
     dmi_event01 1
     beat_anim
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     rest 6
     rest 6
-    dmi_event01 16
+    dmi_event01 32
     rest 6
     dmi_event01 1
     beat_anim
@@ -425,7 +425,7 @@ script script_drum_samurai_demo_cutscene_main
     rest 6
     dmi_event01 1
     dmi_event01 512
-    dmi_event01 32
+    dmi_event01 128
     clear_text_s
     rest 6
     run scene_stop_music

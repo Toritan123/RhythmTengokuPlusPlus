@@ -302,9 +302,7 @@ script script_marching_orders_unused_practice
         run beatscript_disable_loops
         marching_orders_event01
         marching_orders_play_voice_sfx VOICE_RIGHT_FACE_F
-        rest 9
-        marching_orders_play_voice_sfx VOICE_F_FACE_RIGHT
-        rest 15
+        rest 24
         marching_orders_event01
         marching_orders_play_voice_sfx VOICE_TURN_RIGHT
         print_text_f D_0805c8e1
@@ -318,9 +316,7 @@ script script_marching_orders_unused_practice
         rest 24
         marching_orders_event01
         marching_orders_play_voice_sfx VOICE_LEFT_FACE_F
-        rest 9
-        marching_orders_play_voice_sfx VOICE_F_FACE_LEFT
-        rest 15
+        rest 24
         marching_orders_event01
         marching_orders_play_voice_sfx VOICE_TURN_LEFT
         print_text_f D_0805c8e2

@@ -142,31 +142,31 @@ script script_drum_intro_unused_3_main
         mute_music_track (MIDI_TRACK_1 | MIDI_TRACK_5)
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
@@ -282,31 +282,31 @@ script script_drum_intro_unused_3_main
         dmi_event01 256
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
@@ -414,41 +414,41 @@ script script_drum_intro_unused_3_main
         dmi_event01 256
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 16
         rest 8
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 16
         rest 8
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 16
         dmi_event01 2
         rest 8
         dmi_event01 2
         rest 24
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         rest 16
         dmi_event01 2
         rest 8
         run scene_stop_music
-        dmi_event01 16
+        dmi_event01 32
         rest 24
         set_game_fade_in_time 8
 

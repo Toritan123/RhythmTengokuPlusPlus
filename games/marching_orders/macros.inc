@@ -37,6 +37,8 @@
     .set VOICE_RIGHT_FACE_2,    15
     .set VOICE_F_FACE_RIGHT,    16
     .set VOICE_F_FACE_LEFT,     17
+    .set VOICE_MARCH_2,         18
+    .set VOICE_MARCH_3,         19
 .endm
 
 

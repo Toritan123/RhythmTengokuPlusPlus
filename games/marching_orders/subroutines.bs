@@ -9,9 +9,7 @@ load_marching_orders_labels
 @ Marching Orders - Subroutines
 
 script marching_orders_sub_08a83758
-    rest 18
-    marching_orders_play_voice_sfx VOICE_ATTENTION
-    rest 6
+    rest 24
     marching_orders_play_voice_sfx VOICE_ATTENTION_2
     marching_orders_event01
     clear_text_f
@@ -22,9 +20,7 @@ script marching_orders_sub_08a83758
 return
 
 script marching_orders_sub_08a83758beatstop
-    rest 18
-    marching_orders_play_voice_sfx VOICE_ATTENTION
-    rest 6
+    rest 24
     marching_orders_play_voice_sfx VOICE_ATTENTION_2
     marching_orders_event00 256
     marching_orders_event01
@@ -37,9 +33,13 @@ return
 
 script marching_orders_sub_08a837ac
     marching_orders_event01
-    marching_orders_play_voice_sfx VOICE_MARCH
     print_text_f D_0805c8e3
-    rest 24
+    marching_orders_play_voice_sfx VOICE_MARCH
+    rest 4
+    marching_orders_play_voice_sfx VOICE_MARCH_2
+    rest 6
+    marching_orders_play_voice_sfx VOICE_MARCH_3
+    rest 14
     marching_orders_play_voice_sfx SHOUT_START
     marching_orders_event00 263
     spawn_cue CUE_STEP
@@ -140,9 +140,7 @@ return
 
 
 script marching_orders_sub_08a83998
-    rest 18
-    marching_orders_play_voice_sfx VOICE_ATTENTION
-    rest 6
+    rest 24
     clear_text_f
     marching_orders_event01
     marching_orders_event00 8
@@ -173,9 +171,7 @@ script marching_orders_sub_08a83998
 return
 
 script marching_orders_sub_08a83998_nobeat
-    rest 18
-    marching_orders_play_voice_sfx VOICE_ATTENTION
-    rest 6
+    rest 24
     clear_text_f
     marching_orders_event01
     marching_orders_event00 8
@@ -204,9 +200,7 @@ script marching_orders_sub_08a83998_nobeat
 return
 
 script marching_orders_sub_08a83b24
-    rest 18
-    marching_orders_play_voice_sfx VOICE_ATTENTION
-    rest 6
+    rest 24
     marching_orders_event01
     marching_orders_event00 8
     play_sfx s_guntai_foot1_seqData
