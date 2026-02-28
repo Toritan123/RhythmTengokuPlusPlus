@@ -7,10 +7,7 @@
 #include "src/scenes/studio.h"
 
 
-/* GAME SELECT SCENE */
-
-
-#define COLOR_MOD_MAX_WAIT_TIME 60
+/* GAME SELECT SCENE */#define COLOR_MOD_MAX_WAIT_TIME 60
 #define COLOR_MOD_INTERP_TIME 96
 
 enum ColorChangerStatesEnum {
@@ -50,10 +47,6 @@ extern u8 sReplayingCampaign;
 extern u32 D_03005590; // Unused
 extern u32 D_030055d4; // Unused
 
-
-#define LEVEL_STATE_PERFECT 6 // New state for perfected levels
-
-
 // Clear sPlayAltBGM
 void disable_game_select_2_bgm(void) {
     sPlayAltBGM = FALSE;
@@ -68,7 +61,7 @@ void enable_game_select_2_bgm(void) {
 
 // Play Game Select Music
 void play_game_select_bgm(void) {
-    if (sPlayAltBGM && !peek_advance_flag(&D_030046a8->data, ADVANCE_FLAG_USE_ALT_GAME_SELECT_MUSIC)) {
+    if (sPlayAltBGM && !CHECK_ADVANCE_FLAG(D_030046a8->data.advanceFlags, ADVANCE_FLAG_USE_ALT_GAME_SELECT_MUSIC)) {
         set_beatscript_tempo(105);
         scene_set_music(&s_shibafu2_bgm_seqData);
         sPlayAltBGM = FALSE;
@@ -825,11 +818,12 @@ void game_select_scene_start(void *sVar, s32 dArg) {
         if ((get_level_id_from_grid_xy(prevX, prevY) == LEVEL_REMIX_6) && (recentLevelState >= LEVEL_STATE_CLEARED)) {
             enable_game_select_2_bgm();
         }
+    } else if (game_select_try_queue_tempo_up_unlock(TRUE)) {
+        gGameSelect->runningLevelEvents = TRUE;
     } else {
         gGameSelect->runningLevelEvents = FALSE;
         gGameSelect->levelEventTimer = 0;
-        request_game_save_data_write();
-
+        write_game_save_data();
         if (gGameSelect->campaignNotice.hasNewCampaign) {
             start_campaign_notice(D_030046a8->data.currentCampaign);
             gGameSelect->campaignNotice.hasNewCampaign = FALSE;
@@ -838,15 +832,6 @@ void game_select_scene_start(void *sVar, s32 dArg) {
         }
     }
 
-    // unlock tempo up (if existing save file for example) (this is FUCKING dirty and stupid i dont like that and it makes me cry at night)
-    if (get_level_state_from_id(LEVEL_REMIX_8) >= LEVEL_STATE_CLEARED && get_level_state_from_id(LEVEL_KARATE_MAN_EXTRA) == LEVEL_STATE_HIDDEN) {
-        set_level_state(saveData, LEVEL_KARATE_MAN_EXTRA, LEVEL_STATE_OPEN);
-        set_level_state(saveData, LEVEL_RHYTHM_TWEEZERS_EXTRA, LEVEL_STATE_CLOSED);
-        set_level_state(saveData, LEVEL_MARCHING_ORDERS_EXTRA, LEVEL_STATE_CLOSED);
-        set_level_state(saveData, LEVEL_SPACEBALL_EXTRA, LEVEL_STATE_CLOSED);
-        set_level_state(saveData, LEVEL_CLAPPY_TRIO_EXTRA, LEVEL_STATE_CLOSED);
-        set_level_state(saveData, LEVEL_REMIX_1_EXTRA, LEVEL_STATE_CLOSED);
-    }
 
     saveData->recentLevelState = LEVEL_STATE_NULL;
     saveData->recentLevelClearedByBarista = FALSE;
@@ -1072,6 +1057,7 @@ void game_select_read_inputs_sub2(void) {
 // Read Key Inputs
 void game_select_read_inputs(void) {
     struct LevelData *levelData;
+    u32 campaignsLeft;
     s32 levelState, levelID;
     u32 canHaveCampaign;
 
@@ -1110,7 +1096,8 @@ void game_select_read_inputs(void) {
                     canHaveCampaign = TRUE;
 
                     // hold select to replay a cleared campaign level
-                    if(get_campaign_cleared(&D_030046a8->data, get_campaign_from_level_id(levelID)) && (D_03004ac0 & SELECT_BUTTON)) {
+                    campaignsLeft = TOTAL_PERFECT_CAMPAIGNS - D_030046a8->data.totalPerfects;
+                    if(get_campaign_cleared(&D_030046a8->data, get_campaign_from_level_id(levelID)) && (D_03004ac0 & SELECT_BUTTON) && campaignsLeft == 0) {
                         D_030046a8->data.campaignState = CAMPAIGN_STATE_ACTIVE;
                         D_030046a8->data.campaignAttemptsLeft = 1;
                         gGameSelect->campaignNotice.id = get_campaign_from_level_id(levelID);
@@ -1448,6 +1435,14 @@ u32 game_select_check_level_event_req(s32 x, s32 y, s32 newState) {
             return TRUE;
         }
 
+        if (requirements[0] == LEVEL_EVENT_REQ_TOTAL_MEDALS) {
+            if (saveData->totalMedals < (u8)requirements[1]) {
+                return FALSE;
+            }
+            requirements += 3;
+            continue;
+        }
+
         x = requirements[1];
         y = requirements[2];
         gridEntry = game_select_grid_data + x + (y * GS_GRID_WIDTH);
@@ -1674,6 +1669,7 @@ u32 game_select_process_level_events(void) {
 
             D_030046a8->data.totalMedals++;
             game_select_refresh_medal_count(127);
+            game_select_try_queue_tempo_up_unlock(FALSE);
             cafe_session_remove_level(id);
             set_level_first_superb(&D_030046a8->data, id, get_level_total_plays(&D_030046a8->data, id));
             if(get_level_first_ok(&D_030046a8->data, id) == 0) {
@@ -1812,13 +1808,11 @@ void game_select_update_level_events(void) {
     D_030046a8->data.gsCursorX = gGameSelect->cursorX;
     D_030046a8->data.gsCursorY = gGameSelect->cursorY;
 
-//#if REV < 1
-//    if (gGameSelect->manualUnlockEnabled) {
-//        save_level_state_from_grid_xy(gGameSelect->manualUnlockX, gGameSelect->manualUnlockY, LEVEL_STATE_OPEN);
-//    }
-//#endif
+    if (gGameSelect->manualUnlockEnabled) {
+        save_level_state_from_grid_xy(gGameSelect->manualUnlockX, gGameSelect->manualUnlockY, LEVEL_STATE_OPEN);
+    }
 
-    request_game_save_data_write();
+    write_game_save_data();
 
     if (gGameSelect->campaignNotice.hasNewCampaign) {
         start_campaign_notice(D_030046a8->data.currentCampaign);
@@ -2373,9 +2367,13 @@ void game_select_scene_stop(void *sVar, s32 dArg) {
     func_08008628();
     func_08003f28();
     func_08004058();
+
+    // sync to vblank
+    func_080013a8();
+
     func_08006d80();
     func_08007014(0);
-    request_game_save_data_write();
+    write_game_save_data();
 }
 
 
@@ -2870,20 +2868,6 @@ void game_select_clear_bg_tiles(u32 baseMap, u32 mapSize, u32 tileX, u32 tileY, 
 
     for (i = 0; i < height; i++) {
         if ((tileY + i) >= 32) {
-/*
-i hate the gba hardware i hate the gba hardware i hate the gba hardware i hate the gba hardware i hate the gba hardware i hate the gba hardware i hate the gba hardware i hate the gba hardware 
-i hate the gba hardware 
-i hate the gba hardware i hate the gba hardware 
-i hate the gba hardware i hate the gba hardware i hate the gba hardware 
-i hate the gba hardware i hate the gba hardware i hate the gba hardware i hate the gba hardware i hate the gba hardware i hate the gba hardware 
-i hate the gba hardware i hate the gba hardware i hate the gba hardware i hate the gba hardware https://www.coranac.com/tonc/text/regbg.htm
-https://www.coranac.com/tonc/text/regbg.htm
-https://www.coranac.com/tonc/text/regbg.htmhttps://www.coranac.com/tonc/text/regbg.htm
-https://www.coranac.com/tonc/text/regbg.htmhttps://www.coranac.com/tonc/text/regbg.htm
-https://www.coranac.com/tonc/text/regbg.htmhttps://www.coranac.com/tonc/text/regbg.htm
-https://www.coranac.com/tonc/text/regbg.htm
-*/
-
             u32 newMapY = (tileY + i) >> 5;
             u32 newTileY = (tileY + i) & 0x1F;
             u32 newMapNum;
@@ -2922,4 +2906,41 @@ https://www.coranac.com/tonc/text/regbg.htm
             mapDest += 0x20;
         }
     }
+}
+
+
+u32 game_select_try_queue_tempo_up_unlock(u32 startEvents) {
+    s32 x, y;
+    s32 state;
+
+    get_grid_xy_from_level_id(LEVEL_KARATE_MAN_EXTRA, &x, &y);
+    state = get_level_state_from_grid_xy(x, y);
+
+    if (state >= LEVEL_STATE_OPEN) {
+        return FALSE;
+    }
+
+    if (state == LEVEL_STATE_HIDDEN) {
+        if (!game_select_check_level_event_req(x, y, LEVEL_STATE_CLOSED)) {
+            return FALSE;
+        }
+        if (startEvents) {
+            game_select_start_level_events(60);
+        }
+        game_select_enqueue_level_event(x, y, LEVEL_STATE_CLOSED);
+        return TRUE;
+    }
+
+    if (state == LEVEL_STATE_CLOSED) {
+        if (!game_select_check_level_event_req(x, y, LEVEL_STATE_OPEN)) {
+            return FALSE;
+        }
+        if (startEvents) {
+            game_select_start_level_events(60);
+        }
+        game_select_enqueue_level_event(x, y, LEVEL_STATE_OPEN);
+        return TRUE;
+    }
+
+    return FALSE;
 }
