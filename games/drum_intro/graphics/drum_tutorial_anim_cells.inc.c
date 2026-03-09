@@ -23,17 +23,17 @@ AnimationCel drum_tutorial_cel003[] = {
 
 AnimationCel drum_tutorial_cel004[] = {
     /* Len */ 1,
-    /* 000 */ 0x0000, 0x0000, 0x0256
+    /* 000 */ 0x0000, 0x0000, 0x025b
 };
 
 AnimationCel drum_tutorial_cel005[] = {
     /* Len */ 1,
-    /* 000 */ 0x0000, 0x0000, 0x0256
+    /* 000 */ 0x0000, 0x0000, 0x025b
 };
 
 AnimationCel drum_tutorial_cel006[] = {
     /* Len */ 1,
-    /* 000 */ 0x0000, 0x0000, 0x0256
+    /* 000 */ 0x0000, 0x0000, 0x025b
 };
 
 AnimationCel drum_tutorial_cel007[] = {
@@ -1038,9 +1038,10 @@ AnimationCel drum_tutorial_cel119[] = {
 };
 
 AnimationCel drum_tutorial_cel120[] = {
-    /* Len */ 2,
-    /* 000 */ 0x8000, 0x8000, 0x208c,
-    /* 001 */ 0x8000, 0x4010, 0x2094
+    /* Len */ 3,
+    /* 000 */ 0x1d10, 0x4a00, 0x2259,
+    /* 001 */ 0x0000, 0x4000, 0x2257,
+    /* 002 */ 0x8000, 0x4010, 0x2094
 };
 
 AnimationCel drum_tutorial_cel121[] = {

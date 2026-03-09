@@ -307,5 +307,83 @@ struct DrumStudioMonitorData drum_studio_bg_table[] = {
         /* GFX Table */ BG_GFX_TABLE_LINES,
         /* BG2 Vel.  */ -0x40, 0x00,
         /* BG3 Vel.  */ -0x26, 0x00
-    }
+    },
+    /* DRUM_LESSON */ {
+        /* Palette   */ studio_bg_monitor_01_pal,
+        /* GFX Table */ BG_GFX_TABLE_LINES,
+        /* BG2 Vel.  */ -0x40, 0x00,
+        /* BG3 Vel.  */ -0x26, 0x00
+    },
+    /* MARCHING_ORDERS_PRACTICE */ {
+        /* Palette   */ studio_bg_monitor_06_pal,
+        /* GFX Table */ BG_GFX_TABLE_SQUARES,
+        /* BG2 Vel.  */ 0x00, 0x80,
+        /* BG3 Vel.  */ 0x00, 0x40
+    },
+    /* RAPMEN */ {
+        /* Palette   */ studio_bg_monitor_12_pal,
+        /* GFX Table */ BG_GFX_TABLE_CITY,
+        /* BG2 Vel.  */ -0x80, 0x00,
+        /* BG3 Vel.  */ -0x40, 0x00
+    },
+    /* RAPWOMEN */ {
+        /* Palette   */ studio_bg_monitor_08_pal,
+        /* GFX Table */ BG_GFX_TABLE_CITY,
+        /* BG2 Vel.  */ -0x80, 0x00,
+        /* BG3 Vel.  */ -0x40, 0x00
+    },
+    /* REMIX1 */ {
+        /* Palette   */ studio_bg_monitor_20_pal,
+        /* GFX Table */ BG_GFX_TABLE_SPARKLES,
+        /* BG2 Vel.  */ 0x100, -0x100,
+        /* BG3 Vel.  */ 0x80,  -0x80
+    },
+    /* REMIX2 */ {
+        /* Palette   */ studio_bg_monitor_30_pal,
+        /* GFX Table */ BG_GFX_TABLE_FRUIT,
+        /* BG2 Vel.  */ -0x100, 0x100,
+        /* BG3 Vel.  */  0x80, -0x80
+    },
+    /* REMIX4 */ {
+        /* Palette   */ studio_bg_monitor_27_pal,
+        /* GFX Table */ BG_GFX_TABLE_FISH,
+        /* BG2 Vel.  */ 0x100, 0x40,
+        /* BG3 Vel.  */ 0x80,  0x20
+    },
+    /* KARATE_MAN_TEMPO_UP */ {
+        /* Palette   */ studio_bg_monitor_08_pal,
+        /* GFX Table */ BG_GFX_TABLE_CHECKERBOARD,
+        /* BG2 Vel.  */ 0x90, 0x00,
+        /* BG3 Vel.  */ 0x00, 0x64
+    },
+    /* RHYTHM_TWEEZERS_TEMPO_UP */ {
+        /* Palette   */ studio_bg_monitor_19_pal,
+        /* GFX Table */ BG_GFX_TABLE_FRUIT,
+        /* BG2 Vel.  */ 0x00, -0x110,
+        /* BG3 Vel.  */ 0x00, -0x90
+    },
+    /* MARCHING_ORDERS_TEMPO_UP */ {
+        /* Palette   */ studio_bg_monitor_11_pal,
+        /* GFX Table */ BG_GFX_TABLE_FRUIT,
+        /* BG2 Vel.  */ 0x00, -0x110,
+        /* BG3 Vel.  */ 0x00, -0x90
+    },
+    /* SPACEBALL_TEMPO_UP */ {
+        /* Palette   */ studio_bg_monitor_06_pal,
+        /* GFX Table */ BG_GFX_TABLE_STATIONERY,
+        /* BG2 Vel.  */ 0x110, -0x110,
+        /* BG3 Vel.  */ 0x110, 0x110
+    },
+    /* CLAPPY_TRIO_TEMPO_UP */ {
+        /* Palette   */ studio_bg_monitor_39_pal,
+        /* GFX Table */ BG_GFX_TABLE_CITY,
+        /* BG2 Vel.  */ -0x90, 0x00,
+        /* BG3 Vel.  */ -0x50, 0x00
+    },
+    /* REMIX1_TEMPO_UP */ {
+        /* Palette   */ studio_bg_monitor_07_pal,
+        /* GFX Table */ BG_GFX_TABLE_SPARKLES,
+        /* BG2 Vel.  */ 0x90, 0x00,
+        /* BG3 Vel.  */ 0x00, 0x64
+    },
 };

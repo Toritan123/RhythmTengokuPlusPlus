@@ -1275,6 +1275,7 @@ script script_studio_remix2
     rest_beats 4
     play_music L2_pat00_seqData
     rest_beats 4
+    dms_start_bg_monitor 2
     play_music L2_pat01_seqData
     rest_beats 32
     play_music L2_pat01_seqData
@@ -1830,6 +1831,387 @@ script script_studio_wizards_waltz
     rest 24
     rest 24
     run scene_stop_music
+    rest 24
+    rest 24
+    rest 24
+    return
+
+@ Marching Orders Practice
+script script_studio_marching_orders_practice
+    set_tempo 135
+    set_music_volume 0xFF
+    run mute_studio_mus_tracks, (MIDI_TRACK_6 | MIDI_TRACK_7 | MIDI_TRACK_8)
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    play_music s_guntai1_seqData
+    dms_start_bg_monitor 2
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    rest_beats 103
+    rest_beats 88
+    mod_music_volume 0, 141
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    run scene_stop_music
+    rest 24
+    rest 24
+    rest 24
+    return
+
+@ RAPMEN
+script script_studio_rapmen
+    set_tempo 180
+    set_music_volume 0xFF
+    run mute_studio_mus_tracks, (MIDI_TRACK_4 | MIDI_TRACK_11)
+    run play_studio_mus_count_in
+    rest 24
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    dms_start_bg_monitor 2
+    play_music s_rap_bgm_seqData
+    rest_beats 173
+    rest 8
+    mod_music_volume 0, 240
+    rest_beats 8
+    run scene_stop_music
+    rest 24
+    rest 24
+    rest 24
+    return
+
+@ RAPWOMEN
+script script_studio_rapwomen
+    set_tempo 180
+    set_music_volume 0xFF
+    run mute_studio_mus_tracks, (MIDI_TRACK_9 | MIDI_TRACK_10)
+    run play_studio_mus_count_in
+    rest 24
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 16
+    play_music s_rap_jazz_bgm_seqData
+    rest 8
+    dms_start_bg_monitor 2
+    rest_beats 201
+    mod_music_volume 0, 120
+    rest_beats 4
+    run scene_stop_music
+    rest 24
+    rest 24
+    rest 24
+    return
+
+@ Drum Lesson
+script script_studio_drum_lesson
+    set_tempo 120
+    set_music_volume 0xFF
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    play_music s_drum_lesson_bgm_seqData
+    dms_start_bg_monitor 2
+    rest_beats 32
+    rest_beats 32
+    mod_music_volume 0, 192
+    rest_beats 8
+    run scene_stop_music
+    rest 24
+    rest 24
+    return
+
+@ Karate Man TEMPO UP
+script script_studio_karate_man_tempo
+    set_tempo 177
+    set_music_volume 0x96
+    run mute_studio_mus_tracks, MIDI_TRACK_4
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    dms_start_bg_monitor 2
+    play_music s_karate_extra_bgm_seqData
+    rest_beats 16
+    rest_beats 16
+    rest_beats 16
+    rest_beats 8
+    rest_beats 16
+    rest_beats 16
+    rest_beats 8
+    rest_beats 16
+    rest_beats 16
+    rest_beats 8
+    set_tempo 221
+    set_music_volume 0x64
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    mod_music_volume 240, 120
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    rest 12
+    rest 6
+    run gameplay_set_reverb, 40
+    rest 6
+    set_tempo 206
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run gameplay_set_reverb, 0
+    set_music_volume 0x96
+    play_music s_karate_fan_seqData
+    run mute_studio_mus_tracks, MIDI_TRACK_4
+    rest_beats 4
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    return
+
+@ Rhythm Tweezers TEMPO UP
+script script_studio_rhythm_tweezers_tempo
+    set_tempo 144
+    set_music_volume 0xC8
+    run mute_studio_mus_tracks, (MIDI_TRACK_11 | MIDI_TRACK_12 | MIDI_TRACK_13)
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    play_music rhythmtweezers_tempo_seqData
+    rest_beats 8
+    dms_start_bg_monitor 1
+    rest_beats 16
+    rest_beats 16
+    rest_beats 16
+    rest_beats 16
+    rest_beats 8
+    rest_beats 16
+    rest_beats 8
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    return
+
+@ Marching Orders TEMPO UP
+script script_studio_marching_orders_tempo
+    set_tempo 177
+    set_music_volume 0x100
+    run mute_studio_mus_tracks, MIDI_TRACK_9
+    play_music s_guntai2_seqData
+    run play_studio_mus_count_in
+    rest 24
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    dms_start_bg_monitor 2
+    rest_beats 32
+    rest_beats 32
+    rest_beats 16
+    rest_beats 32
+    rest_beats 32
+    rest 382 @ ~15.92 beats
+    run scene_stop_music
+    rest 2
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    return
+
+@ Spaceball TEMPO UP
+script script_studio_spaceball_tempo
+    set_tempo 165
+    set_music_volume 0x100
+    run mute_studio_mus_tracks, (MIDI_TRACK_9 | MIDI_TRACK_10)
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    play_music spaceball_tempo_seqData
+    rest_beats 8
+    dms_start_bg_monitor 2
+    play_sfx_vol spaceball_tempo_cymbal_seqData, 176
+    rest_beats 16
+    play_sfx_vol spaceball_tempo_cymbal_seqData, 176
+    rest_beats 16
+    play_sfx_vol spaceball_tempo_cymbal_seqData, 176
+    rest_beats 8
+    play_sfx_vol spaceball_tempo_cymbal_seqData, 176
+    rest_beats 16
+    rest_beats 4
+    play_sfx_vol spaceball_tempo_mpart_seqData, 176
+    rest_beats 4
+    play_sfx_vol spaceball_tempo_cymbal_seqData, 176
+    rest_beats 16
+    play_sfx_vol spaceball_tempo_cymbal_seqData, 176
+    rest_beats 16
+    play_sfx_vol spaceball_tempo_cymbal_seqData, 176
+    rest_beats 8
+    play_sfx_vol spaceball_tempo_cymbal_seqData, 176
+    rest_beats 16
+    mod_music_volume 0, 80
+    rest_beats 4
+    run scene_stop_music
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    return
+
+@ The Clappy Trio TEMPO UP
+script script_studio_clappy_trio_tempo
+    set_tempo 177
+    set_music_volume 0x100
+    run mute_studio_mus_tracks, (MIDI_TRACK_2 | MIDI_TRACK_3)
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 12
+    play_music s_tebyoushi_bgm_seqData
+    rest 12
+    dms_start_bg_monitor 1
+    rest_beats 8
+    rest_beats 16
+    rest_beats 16
+    rest_beats 16
+    rest_beats 16
+    rest_beats 16
+    rest_beats 4
+    rest_beats 16
+    rest_beats 16
+    rest_beats 16
+    rest 382 @ ~15.92 beats
+    run scene_stop_music
+    rest 2
+    rest 24
+    rest 24
+    rest 24
+    rest 24
+    return
+
+@ Remix 1 TEMPO UP
+script script_studio_remix1_tempo
+    set_tempo 180
+    set_music_volume 0xFF
+    mute_music_track MIDI_TRACK_9
+    run mute_studio_mus_tracks, (MIDI_TRACK_6 | MIDI_TRACK_8 | MIDI_TRACK_9)
+    play_music Lesson1_seqData
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    run play_studio_mus_count_in
+    rest 24
+    dms_start_bg_monitor 2
+    play_music L1_pat01_seqData
+    rest_beats 28
+    play_music L1_pat02_seqData
+    rest_beats 32
+    play_music L1_pat03_seqData
+    rest_beats 32
+    play_music L1_pat06_seqData
+    rest_beats 36
+    play_music L1_pat09_seqData
+    rest_beats 36
+    play_music L1_pat10_seqData
+    rest_beats 36
+    play_music L1_pat13_seqData
+    rest_beats 36
+    play_music L1_pat16_seqData
+    rest_beats 41
+    rest 24
     rest 24
     rest 24
     rest 24

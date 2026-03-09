@@ -762,3 +762,7 @@ char s_guntai_v_susume_f_seqName[] = "";
 char s_rat_paw_seqName[] = "";
 char s_rat_squeak_seqName[] = "";
 char s_f_boxing_two_fast_sfx_seqName[] = "";
+char spaceball_tempo_seqName[] = "";
+char spaceball_tempo_mpart_seqName[] = "";
+char spaceball_tempo_cymbal_seqName[] = "";
+char rhythmtweezers_tempo_seqName[] = "";

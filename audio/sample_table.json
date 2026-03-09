@@ -5210,7 +5210,158 @@
         {
             "sample": "sample_082_3.wav",
             "pitch": "C5"
-
+        },
+        {
+            "sample": "sb_tempo_1.wav",
+            "pitch": "C6"
+        },
+        {
+            "sample": "sb_tempo_4.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "sb_tempo_5.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "sb_tempo_6.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "sb_tempo_12.wav",
+            "pitch": "E5"
+        },
+        {
+            "sample": "sb_tempo_13.wav",
+            "pitch": "C4"
+        },
+        {
+            "sample": "sb_tempo_16.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "sb_tempo_18.wav",
+            "pitch": "C4"
+        },
+        {
+            "sample": "sb_tempo_22.wav",
+            "pitch": "E4"
+        },
+        {
+            "sample": "sb_tempo_23.wav",
+            "pitch": "C4"
+        },
+        {
+            "sample": "sb_tempo_24.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "sb_tempo_25.wav",
+            "pitch": "F#5"
+        },
+        {
+            "sample": "sb_tempo_26.wav",
+            "pitch": "F#5"
+        },
+        {
+            "sample": "sb_tempo_27.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "sb_tempo_28.wav",
+            "pitch": "F#5"
+        },
+        {
+            "sample": "sb_tempo_29.wav",
+            "pitch": "F#5"
+        },
+        {
+            "sample": "sb_tempo_30.wav",
+            "pitch": "F#5"
+        },
+        {
+            "sample": "sb_tempo_31.wav",
+            "pitch": "F#5"
+        },
+        {
+            "sample": "sb_tempo_32.wav",
+            "pitch": "E5"
+        },
+        {
+            "sample": "sb_tempo_33.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "sb_tempo_34.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "rt_tempo_1.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "rt_tempo_2.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "rt_tempo_3.wav",
+            "pitch": "C4"
+        },
+        {
+            "sample": "rt_tempo_4.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "rt_tempo_5.wav",
+            "pitch": "C5"
+        },
+        {
+            "sample": "rt_tempo_6.wav",
+            "pitch": "B4"
+        },
+        {
+            "sample": "rt_tempo_7.wav",
+            "pitch": "B5"
+        },
+        {
+            "sample": "rt_tempo_8.wav",
+            "pitch": "B6"
+        },
+        {
+            "sample": "rt_tempo_9.wav",
+            "pitch": "C5"
+        },
+                {
+            "sample": "rt_tempo_10.wav",
+            "pitch": "C5"
+        },
+                {
+            "sample": "rt_tempo_11.wav",
+            "pitch": "C3"
+        },
+        {
+            "sample": "rt_tempo_12.wav",
+            "pitch": "C4"
+        },
+        {
+            "sample": "rt_tempo_13.wav",
+            "pitch": "C4"
+        },
+        {
+            "sample": "rt_tempo_14.wav",
+            "pitch": "C4"
+        },
+        {
+            "sample": "rt_tempo_15.wav",
+            "pitch": "C4"
+        },
+        {
+            "sample": "rt_tempo_16.wav",
+            "pitch": "C4"
+        },
+        {
+            "sample": "rt_tempo_17.wav",
+            "pitch": "C4"
         },
         {
             "sample": "awake_baby.wav",

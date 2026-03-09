@@ -7,7 +7,10 @@
 #include "src/scenes/studio.h"
 
 
-/* GAME SELECT SCENE */#define COLOR_MOD_MAX_WAIT_TIME 60
+/* GAME SELECT SCENE */
+
+
+#define COLOR_MOD_MAX_WAIT_TIME 60
 #define COLOR_MOD_INTERP_TIME 96
 
 enum ColorChangerStatesEnum {
@@ -823,7 +826,7 @@ void game_select_scene_start(void *sVar, s32 dArg) {
     } else {
         gGameSelect->runningLevelEvents = FALSE;
         gGameSelect->levelEventTimer = 0;
-        write_game_save_data();
+        request_game_save_data_write();
         if (gGameSelect->campaignNotice.hasNewCampaign) {
             start_campaign_notice(D_030046a8->data.currentCampaign);
             gGameSelect->campaignNotice.hasNewCampaign = FALSE;
@@ -1812,7 +1815,7 @@ void game_select_update_level_events(void) {
         save_level_state_from_grid_xy(gGameSelect->manualUnlockX, gGameSelect->manualUnlockY, LEVEL_STATE_OPEN);
     }
 
-    write_game_save_data();
+    request_game_save_data_write();
 
     if (gGameSelect->campaignNotice.hasNewCampaign) {
         start_campaign_notice(D_030046a8->data.currentCampaign);
@@ -2373,7 +2376,7 @@ void game_select_scene_stop(void *sVar, s32 dArg) {
 
     func_08006d80();
     func_08007014(0);
-    write_game_save_data();
+    request_game_save_data_write();
 }
 
 

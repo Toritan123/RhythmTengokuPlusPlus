@@ -43,9 +43,19 @@ extern const struct Beatscript script_studio_try_again[];
 extern const struct Beatscript script_studio_ok[];
 extern const struct Beatscript script_studio_superb[];
 extern const struct Beatscript script_studio_perfect[];
-extern const struct Beatscript script_studio_remix4[];
-extern const struct Beatscript script_studio_remix2[];
+extern const struct Beatscript script_studio_drum_lesson[];
+extern const struct Beatscript script_studio_marching_orders_practice[];
+extern const struct Beatscript script_studio_rapmen[];
+extern const struct Beatscript script_studio_rapwomen[];
 extern const struct Beatscript script_studio_remix1[];
+extern const struct Beatscript script_studio_remix2[];
+extern const struct Beatscript script_studio_remix4[];
+extern const struct Beatscript script_studio_karate_man_tempo[];
+extern const struct Beatscript script_studio_rhythm_tweezers_tempo[];
+extern const struct Beatscript script_studio_marching_orders_tempo[];
+extern const struct Beatscript script_studio_spaceball_tempo[];
+extern const struct Beatscript script_studio_clappy_trio_tempo[];
+extern const struct Beatscript script_studio_remix1_tempo[];
 
 
 // [D_089d81b4] Studio Song Entries
@@ -275,6 +285,26 @@ struct StudioEntry studio_song_table[] = {
         /* Short Title */ NULL,
         /* Drum Script */ script_studio_perfect,
     },
+    /* DRUM_LESSON */ {
+        /* Full Title  */ "ドラムレッスン",
+        /* Short Title */ NULL,
+        /* Drum Script */ script_studio_drum_lesson
+    },
+    /* MARCHING_ORDERS_PRACTICE */ {
+        /* Full Title  */ "マーチャ・訓練",
+        /* Short Title */ NULL,
+        /* Drum Script */ script_studio_marching_orders_practice
+    },
+    /* RAPMEN */ {
+        /* Full Title  */ "ラップメン",
+        /* Short Title */ NULL,
+        /* Drum Script */ script_studio_rapmen,
+    },
+    /* RAPWOMEN */ {
+        /* Full Title  */ "ラップウィメン",
+        /* Short Title */ NULL,
+        /* Drum Script */ script_studio_rapwomen,
+    },
     /* REMIX1 */ {
         /* Full Title  */ "リミックス１",
         /* Short Title */ NULL,
@@ -290,4 +320,34 @@ struct StudioEntry studio_song_table[] = {
         /* Short Title */ NULL,
         /* Drum Script */ script_studio_remix4
     },
+    /* KARATE_MAN_TEMPO_UP */ {
+        /* Full Title  */ "カラテ家EX",
+        /* Short Title */ NULL,
+        /* Drum Script */ script_studio_karate_man_tempo
+    },
+    /* RHYTHM_TWEEZERS_TEMPO_UP */ {
+        /* Full Title  */ "リズム脱毛EX",
+        /* Short Title */ NULL,
+        /* Drum Script */ script_studio_rhythm_tweezers_tempo
+    },
+    /* MARCHING_ORDERS_TEMPO_UP */ {
+        /* Full Title  */ "マーチャEX",
+        /* Short Title */ NULL,
+        /* Drum Script */ script_studio_marching_orders_tempo
+    },
+    /* SPACEBALL_TEMPO_UP */ {
+        /* Full Title  */ "エアーバッターEX",
+        /* Short Title */ NULL,
+        /* Drum Script */ script_studio_spaceball_tempo
+    },
+    /* CLAPPY_TRIO_TEMPO_UP */ {
+        /* Full Title  */ "パチパチ三人衆EX",
+        /* Short Title */ NULL,
+        /* Drum Script */ script_studio_clappy_trio_tempo
+    },
+    /* REMIX1_TEMPO_UP */ {
+        /* Full Title  */ "リミックス１EX",
+        /* Short Title */ NULL,
+        /* Drum Script */ script_studio_remix1_tempo
+    }
 };
