@@ -7,6 +7,16 @@
 
 // [D_089ddbe8] Debug Menu Table
 struct DebugMenuEntry debug_menu_entry_table[] = {
+    /* Warning */ {
+        /* Scene */ &scene_warning,
+        /* Label */ "けいこく",
+        /* Epil. */ FALSE
+    },
+    /* Disclaimer */ {
+        /* Scene */ &scene_disclaimer,
+        /* Label */ "けいこく　２",
+        /* Epil. */ FALSE
+    },
     /* Drum LIVE */ {
         /* Scene */ &scene_drum_live,
         /* Label */ "ライブ",
@@ -317,11 +327,6 @@ struct DebugMenuEntry debug_menu_entry_table[] = {
         /* Label */ "こっそりラット",
         /* Epil. */ TRUE
     },
-    /* Flash Memory Test */ {
-        /* Scene */ &scene_flash_mem_test,
-        /* Label */ "フラッシュメモリテスト",
-        /* Epil. */ FALSE
-    },
     /* Fireworks */ {
         /* Scene */ &scene_fireworks,
         /* Label */ "ハナビ",
@@ -547,14 +552,14 @@ struct DebugMenuEntry debug_menu_entry_table[] = {
         /* Label */ "Ｒ－ＩＱ　（リザルト　４）",
         /* Epil. */ TRUE
     },
-    /* R-IQ (Debug Menu) */ {
-        /* Scene */ &scene_debug_menu,
-        /* Label */ "Ｒ－ＩＱ　（デバッグ）",
-        /* Epil. */ FALSE
-    },
     /* R-IQ (Rhythm Library) */ {
         /* Scene */ &scene_arrival,
         /* Label */ "Ｒ－ＩＱ　（にゅうか）",
+        /* Epil. */ FALSE
+    },
+    /* R-IQ (Debug Menu) */ {
+        /* Scene */ &scene_debug_menu,
+        /* Label */ "Ｒ－ＩＱ　（デバッグ）",
         /* Epil. */ FALSE
     },
     /* R-IQ (Perfect) */ {
@@ -590,21 +595,6 @@ struct DebugMenuEntry debug_menu_entry_table[] = {
     /* Ending (from Game Select) */ {
         /* Scene */ &scene_staff_credit,
         /* Label */ "エンディング　（おまけから）",
-        /* Epil. */ FALSE
-    },
-    /* Data Clear */ {
-        /* Scene */ &scene_data_clear,
-        /* Label */ "データクリア",
-        /* Epil. */ FALSE
-    },
-    /* Warning */ {
-        /* Scene */ &scene_warning,
-        /* Label */ "けいこく",
-        /* Epil. */ FALSE
-    },
-    /* Disclaimer */ {
-        /* Scene */ &scene_disclaimer,
-        /* Label */ "けいこく　２",
         /* Epil. */ FALSE
     },
     /* Snappy Trio (Unused) */ {
@@ -646,6 +636,36 @@ struct DebugMenuEntry debug_menu_entry_table[] = {
         /* Scene */ &scene_mechanical_horse_unused,
         /* Label */ "うまマシーン　（みしよう）",
         /* Epil. */ TRUE
+    },
+    /* Flash Memory Test */ {
+        /* Scene */ &scene_flash_mem_test,
+        /* Label */ "フラッシュメモリテスト",
+        /* Epil. */ FALSE
+    },
+    /* R-IQ Save Editor */ {
+        /* Scene */ &scene_save_editor,
+        /* Label */ "てんごくプラス　セーブエディター",
+        /* Epil. */ FALSE
+    },
+    /* Asset Test */ {
+        /* Scene */ &scene_asset_test,
+        /* Label */ "てんごくプラス　アセットテスト",
+        /* Epil. */ FALSE  
+    },
+    /* Template Scene */ {
+        /* Scene */ &scene_template,
+        /* Label */ "てんごくプラス　テンプレートシーン",
+        /* Epil. */ FALSE  
+    },
+    /* Read Error */ {
+        /* Scene */ &scene_read_error,
+        /* Label */ "てんごくプラス　リードエラー",
+        /* Epil. */ FALSE  
+    },
+    /* Data Clear */ {
+        /* Scene */ &scene_data_clear,
+        /* Label */ "セーブデータクリア",
+        /* Epil. */ FALSE
     },
     END_OF_DEBUG_ENTRIES
 };
