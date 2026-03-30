@@ -1,7 +1,7 @@
 
 # リズム天国プラスプラス
 
-![リズム天国プラス](media/rtp.png?raw=true "リズム天国プラス")
+![リズム天国プラスプラス](media/rtp.png?raw=true "リズム天国プラスプラス")
 
 これはGBAゲームである「リズム天国」の非公式機能追加プロジェクト「リズム天国プラス」の非公式機能追加プロジェクト「リズム天国プラスプラス」です。このプロジェクトは、先述ゲームの非公式英語翻訳プロジェクト「Rhythm Heaven Advance」およびその一部である「Rhythm Heaven Advance Plus」に追加される新機能を日本語版のリズム天国に移植したものとなります。
 このプロジェクトは、現在**進行中**です！つまり、未完成もしくは不安定であるためパッチ等のダウンロードリンクは提供されていません。
@@ -68,8 +68,7 @@ sudo dkp-pacman -S gba-dev
 
 1. **このリポジトリをクローンします:**
    ```bash
-   git clone https://github.com/Toritan123/RhythmTengokuPlusPlus
-   .git
+   git clone https://github.com/Toritan123/RhythmTengokuPlusPlus.git
    ```
 
 2. **agbcc（ビルドに使用するツール）をクローンし、インストールします:**
@@ -114,15 +113,14 @@ make -j$(nproc) FEATURES="PLAYTEST DEBUG"
 のように`""`を省略できます。
 
 ## クレジット
-リズム天国プラスのクレジットは[こちら](CREDITS_rtp.md)
+リズム天国プラスプラスのクレジットは[こちら](CREDITS_rtp.md)
 
 本家プロジェクト・Rhythm Heaven Advanceのクレジットは[こちら](CREDITS_rha.md)
 
 ## 連絡先
 
-- [リズム天国プラスプラス　email]rhythmtngkplusplus@icloud.com)
+- [リズム天国プラスプラス　email](rhythmtngkplusplus@icloud.com)
 
-- (
 - [Rhythm Heaven Advanceのdiscordサーバー](https://discord.gg/8PET8w8PU8)
 **（質問などRhythm Heaven Advanceより移植されたものについてはこちらで発言しても構いませんが、リズム天国プラス、リズム天国プラスプラス独自の内容に関する質問はこのdiscordサーバーではお控えください！）**
 
