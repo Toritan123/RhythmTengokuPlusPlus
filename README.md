@@ -120,13 +120,13 @@ make -j$(nproc) FEATURES="PLAYTEST DEBUG"
 
 ## 連絡先
 
-- [リズム天国プラス　Twitter](https://x.com/rhytngkplus)
+- [リズム天国プラスプラス　email]rhythmtngkplusplus@icloud.com)
 
 - (
 - [Rhythm Heaven Advanceのdiscordサーバー](https://discord.gg/8PET8w8PU8)
-**（質問などRhythm Heaven Advanceより移植されたものについてはこちらで発言しても構いませんが、リズム天国プラス独自の内容に関する質問はこのdiscordサーバーではお控えください！）**
+**（質問などRhythm Heaven Advanceより移植されたものについてはこちらで発言しても構いませんが、リズム天国プラス、リズム天国プラスプラス独自の内容に関する質問はこのdiscordサーバーではお控えください！）**
 
-- **GitHub(Issues):** [バグを報告](https://github.com/Mizuka-lover/RhythmTengokuPlus/issues)
+- **GitHub(Issues):** [バグを報告](https://github.com/Toritan123/RhythmTengokuPlusPlus/issues)
 その他のご質問や不明点がございましたら、[rhmodding discord server（英語）](https://discord.com/invite/ps4rq53)へどうぞ！（リズム天国の改造関連についてのサーバーです）
 
 ## 注意事項
