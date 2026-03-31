@@ -76,12 +76,12 @@ sudo dkp-pacman -S gba-dev
    git clone https://github.com/pret/agbcc.git
    cd agbcc
    ./build.sh
-   ./install.sh ../RhythmTengokuPlus
-   cd ../RhythmTengokuPlus
+   ./install.sh ../RhythmTengokuRePlus
+   cd ../RhythmTengokuRePlus
    ```
 
 3. **ROMファイルの配置:**
-   - 先ほどの手順で作成されたRhythmTengokuPlusフォルダにリズム天国のROMファイルをコピーします。
+   - 先ほどの手順で作成されたRhythmTengokuRePlusフォルダにリズム天国のROMファイルをコピーします。
    - 名前を`baserom.gba`(もしくはMakefileで指定された名前)に変更します。
 
 4. **ビルドを開始します:**
@@ -89,12 +89,65 @@ sudo dkp-pacman -S gba-dev
    make -j$(nproc)
    ```
 
-リズム天国プラスのROMデータが`build/`ディレクトリに生成されます。
+リズム天国リプラスのROMデータが`build/`ディレクトリに生成されます。
 
 ### macOS
 
-macOSでのビルド方法は近日公開予定です。ご迷惑をお掛けします。
+#### 依存関係のインストール
 
+まず[Homebrew](https://brew.sh/ja/)をインストールします（既にインストール済みの場合はスキップ）:
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+次に必要なパッケージをインストールします:
+```bash
+brew install git libpng ffmpeg
+```
+
+#### devkitProのインストール
+
+[devkitProの公式サイト](https://devkitpro.org/wiki/Getting_Started)からmacOS向けの`.pkg`インストーラーをダウンロードし、インストールします。
+
+インストール後、環境変数を設定します:
+```bash
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=/opt/devkitpro/devkitARM
+export DEVKITPPC=/opt/devkitpro/devkitPPC
+```
+
+次にGBA開発ツールをインストールします:
+```bash
+sudo dkp-pacman -Sy
+sudo dkp-pacman -S gba-dev
+```
+
+#### クローン及びビルド
+
+1. **このリポジトリをクローンします:**
+```bash
+   git clone https://github.com/Toritan123/RhythmTengokuRePlus.git
+```
+
+2. **agbcc（ビルドに使用するツール）をクローンし、インストールします:**
+```bash
+   git clone https://github.com/pret/agbcc.git
+   cd agbcc
+   ./build.sh
+   ./install.sh ../RhythmTengokuRePlus
+   cd ../RhythmTengokuRePlus
+```
+
+3. **ROMファイルの配置:**
+   - RhythmTengokuRePlusフォルダにリズム天国のROMファイルをコピーします。
+   - 名前を`baserom.gba`に変更します。
+
+4. **ビルドを開始します:**
+```bash
+   make -j$(sysctl -n hw.logicalcpu)
+```
+
+リズム天国リプラスのROMデータが`build/`ディレクトリに生成されます。
 ## インストール後のカスタマイズ
 リズム天国プラスでは「PLAYTEST」と「DEBUG」の二つの機能をカスタマイズすることができます。
 
@@ -113,7 +166,7 @@ make -j$(nproc) FEATURES="PLAYTEST DEBUG"
 のように`""`を省略できます。
 
 ## クレジット
-リズム天国リプラスのクレジットは[こちら](CREDITS_rtp.md)
+リズム天国リプラスのクレジットは[こちら](CREDITS_rtrp.md)
 
 本家プロジェクト・Rhythm Heaven Advanceのクレジットは[こちら](CREDITS_rha.md)
 
@@ -124,7 +177,7 @@ make -j$(nproc) FEATURES="PLAYTEST DEBUG"
 - [Rhythm Heaven Advanceのdiscordサーバー](https://discord.gg/8PET8w8PU8)
 **（質問などRhythm Heaven Advanceより移植されたものについてはこちらで発言しても構いませんが、リズム天国プラス、リズム天国リプラス独自の内容に関する質問はこのdiscordサーバーではお控えください！）**
 
-- **GitHub(Issues):** [バグを報告](https://github.com/Toritan123/RhythmTengokuPlusPlus/issues)
+- **GitHub(Issues):** [バグを報告](https://github.com/Toritan123/RhythmTengokuRePlus/issues)
 その他のご質問や不明点がございましたら、[rhmodding discord server（英語）](https://discord.com/invite/ps4rq53)へどうぞ！（リズム天国の改造関連についてのサーバーです）
 
 ## 注意事項
