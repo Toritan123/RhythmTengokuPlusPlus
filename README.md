@@ -4,6 +4,8 @@
 ![リズム天国リプラス](media/rtp.png?raw=true "リズム天国リプラス")
 
 これはGBAゲームである「リズム天国」の非公式機能追加プロジェクト「リズム天国プラス」の非公式継続プロジェクト「リズム天国リプラス」です。このプロジェクトは、先述ゲームの非公式英語翻訳プロジェクト「Rhythm Heaven Advance」およびその一部である「Rhythm Heaven Advance Plus」に追加される新機能を日本語版のリズム天国に移植したものとなります。
+
+> **注:** ロゴ・ROM内・ROMファイル名は元プロジェクト「リズム天国プラス」のままとなっています。「リズム天国リプラス」はリポジトリ名および本プロジェクトの継続を示す名称です。
 このプロジェクトは、現在**進行中**です！つまり、未完成もしくは不安定であるためパッチ等のダウンロードリンクは提供されていません。
 ただし、プロジェクトのビルドの方法は以下に説明があります。プロジェクトがリリース可能な状態まで進んだ時点で、パッチのダウンロードが可能になる予定です。
 
@@ -125,31 +127,31 @@ sudo dkp-pacman -S gba-dev
 #### クローン及びビルド
 
 1. **このリポジトリをクローンします:**
-```bash
+   ```bash
    git clone https://github.com/Toritan123/RhythmTengokuRePlus.git
-```
+   ```
 
 2. **agbcc（ビルドに使用するツール）をクローンし、インストールします:**
-```bash
+   ```bash
    git clone https://github.com/pret/agbcc.git
    cd agbcc
    ./build.sh
    ./install.sh ../RhythmTengokuRePlus
    cd ../RhythmTengokuRePlus
-```
+   ```
 
 3. **ROMファイルの配置:**
    - RhythmTengokuRePlusフォルダにリズム天国のROMファイルをコピーします。
    - 名前を`baserom.gba`に変更します。
 
 4. **ビルドを開始します:**
-```bash
+   ```bash
    make -j$(sysctl -n hw.logicalcpu)
-```
+   ```
 
 リズム天国リプラスのROMデータが`build/`ディレクトリに生成されます。
 ## インストール後のカスタマイズ
-リズム天国プラスでは「PLAYTEST」と「DEBUG」の二つの機能をカスタマイズすることができます。
+リズム天国リプラスでは「PLAYTEST」と「DEBUG」の二つの機能をカスタマイズすることができます。
 
 - **PLAYTEST:** メダル99枚　全ゲームを解放する
 - **DEBUG:** メインメニューで「リズムゲーム」選択時にL+R同時押しでデバッグメニュー　ゲーム中にL+Rでオートプレイ
@@ -172,7 +174,7 @@ make -j$(nproc) FEATURES="PLAYTEST DEBUG"
 
 ## 連絡先
 
-- [リズム天国リプラス　email](rhythmtngkreplus@icloud.com)
+- [リズム天国リプラス　email](mailto:rhythmtngkreplus@icloud.com)
 
 - [Rhythm Heaven Advanceのdiscordサーバー](https://discord.gg/8PET8w8PU8)
 **（質問などRhythm Heaven Advanceより移植されたものについてはこちらで発言しても構いませんが、リズム天国プラス、リズム天国リプラス独自の内容に関する質問はこのdiscordサーバーではお控えください！）**
