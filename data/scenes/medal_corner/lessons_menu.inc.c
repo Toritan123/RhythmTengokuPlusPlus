@@ -1,5 +1,23 @@
 // [D_089dd5ec] Drum Lessons Menu - Levels
 struct MedalCornerLevel lessons_menu_levels[] = {
+    /* INTRO_UNUSED_1 */ {
+        /* Scene  */ &scene_drum_intro_unused,
+        /* Title  */ "イントロ　１",
+        /* Anim   */ anim_lessons_menu_basic_1,
+        /* Medals */ 0
+    },
+    /* INTRO_UNUSED_2 */ {
+        /* Scene  */ &scene_drum_intro_unused_2,
+        /* Title  */ "イントロ　２",
+        /* Anim   */ anim_lessons_menu_basic_2,
+        /* Medals */ 0
+    },
+    /* INTRO_UNUSED_3 */ {
+        /* Scene  */ &scene_drum_intro_unused_3,
+        /* Title  */ "イントロ　３",
+        /* Anim   */ anim_lessons_menu_basic_3,
+        /* Medals */ 0
+    },
     /* BASIC_1 */ {
         /* Scene  */ &scene_drum_lesson_basic_1,
         /* Title  */ "ベーシック　１",

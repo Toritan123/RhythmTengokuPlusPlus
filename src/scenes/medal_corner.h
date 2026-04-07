@@ -34,8 +34,11 @@ enum EndlessGamesEnum {
 enum DrumLessonsEnum {
     /* -- */ DRUM_LESSON_NULL = -1,
 
-    /* 00 */ DRUM_LESSON_BASIC_1,
-    /* 01 */ DRUM_LESSON_BASIC_2,
+    /* 00 */ DRUM_LESSON_INTRO_UNUSED_1,
+    /* 01 */ DRUM_LESSON_INTRO_UNUSED_2,
+    /* 02 */ DRUM_LESSON_INTRO_UNUSED_3,
+    /* 03 */ DRUM_LESSON_BASIC_1,
+    /* 04 */ DRUM_LESSON_BASIC_2,
     /* 02 */ DRUM_LESSON_SHORT_1,
     /* 03 */ DRUM_LESSON_SHORT_2,
     /* 04 */ DRUM_LESSON_SHORT_3,
