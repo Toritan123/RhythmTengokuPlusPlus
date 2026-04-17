@@ -29,6 +29,7 @@ extern struct Scene scene_data_room;
 extern struct Scene scene_reading;
 extern struct Scene scene_arrival;
 extern struct Scene scene_studio;
+extern struct Scene scene_sound_test;
 extern struct Scene scene_options_menu;
 extern struct Scene scene_cafe;
 extern struct Scene scene_toys_menu;

@@ -61,7 +61,7 @@ void data_check_scene_start(void *sVar, s32 dArg) {
     import_all_scene_objects(gSpriteHandler, gDataCheck->objFont, data_check_scene_objects, D_0300558c);
     data_check_scene_init_gfx1();
     gDataCheck->inputsEnabled = FALSE;
-    set_next_scene(&scene_debug_menu);
+    set_next_scene(get_scene_trans_target(&scene_data_check));
 }
 
 

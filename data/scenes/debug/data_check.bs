@@ -8,6 +8,8 @@ script script_scene_data_check
     pause_scene
 
     run func_08007324, TRUE
+    fade_screen_in 12, BLACK
+    play_music s_siryo_bgm_seqData
     scene_set_byte 8, TRUE
     pause_scene
 

@@ -3,6 +3,7 @@
 #include "graphics/main_menu/main_menu_graphics.h"
 
 #include "src/scenes/gameplay.h"
+#include "src/scenes/sound_test.h"
 
 
 /* MAIN MENU SCENE */
@@ -103,15 +104,9 @@ void main_menu_scene_update(void *sVar, s32 dArg) {
         prevButton = sMainMenuButton;
         if (D_030053b8 & DPAD_UP) {
             sMainMenuButton -= 1;
-            if (sMainMenuButton < 0) {
-                sMainMenuButton = 0;
-            }
         }
         if (D_030053b8 & DPAD_DOWN) {
             sMainMenuButton += 1;
-            if (sMainMenuButton >= TOTAL_MAIN_MENU_BUTTONS) {
-                sMainMenuButton = TOTAL_MAIN_MENU_BUTTONS - 1;
-            }
         }
         sMainMenuButton = clamp_int32(sMainMenuButton, GAME_SELECT, OPTIONS_MENU);
 
@@ -136,13 +131,23 @@ void main_menu_scene_update(void *sVar, s32 dArg) {
                     gameplay_pause_menu_set_quit_destination(&scene_main_menu);
                     break;
                 case RHYTHM_DATA_ROOM:
-                    set_next_scene(&scene_data_room);
-                    set_scene_trans_target(&scene_data_room, &scene_main_menu);
+                    if ((D_03004ac0 & LEFT_SHOULDER_BUTTON) && (D_03004ac0 & RIGHT_SHOULDER_BUTTON)) {
+                        set_next_scene(&scene_data_check);
+                        set_scene_trans_target(&scene_data_check, &scene_main_menu);
+                    } else {
+                        set_next_scene(&scene_data_room);
+                        set_scene_trans_target(&scene_data_room, &scene_main_menu);
+                    }
                     break;
                 case STUDIO:
-                    set_next_scene(&scene_studio);
-                    set_scene_trans_target(&scene_studio, &scene_main_menu);
-                    set_scene_trans_var(&scene_studio, 0);
+                    if ((D_03004ac0 & LEFT_SHOULDER_BUTTON) && (D_03004ac0 & RIGHT_SHOULDER_BUTTON)) {
+                        set_next_scene(&scene_sound_test);
+                        set_scene_trans_target(&scene_sound_test, &scene_main_menu);
+                    } else {
+                        set_next_scene(&scene_studio);
+                        set_scene_trans_target(&scene_studio, &scene_main_menu);
+                        set_scene_trans_var(&scene_studio, 0);
+                    }
                     break;
                 case OPTIONS_MENU:
                     set_next_scene(&scene_options_menu);

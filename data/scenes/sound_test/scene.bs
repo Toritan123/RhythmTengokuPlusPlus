@@ -1,0 +1,40 @@
+.include "include/beatscript.inc"
+
+.section .scene
+
+@ Script
+script script_scene_sound_test
+    set_tempo 120
+    pause_scene
+
+    run func_08007324, TRUE
+    fade_screen_in 12, BLACK
+    rest 12
+    scene_set_byte 0x04, TRUE
+    pause_scene
+
+    scene_set_byte 0x04, FALSE
+    fade_screen_out 12, BLACK
+    rest 12
+    rest 24
+    stop
+
+
+@ Local Scene
+struct sub_scene_sound_test
+    /* Start  */ .word sound_test_scene_start,  0
+    /* Paused */ .word sound_test_scene_paused, 0
+    /* Active */ .word sound_test_scene_update, 0
+    /* Stop   */ .word sound_test_scene_stop,   0
+    /* Script */ .word script_scene_sound_test
+endstruct
+
+@ Sound Test Scene
+struct scene_sound_test
+    /* Start  */ .word func_0801d86c, sub_scene_sound_test
+    /* Update */ .word func_0801d8d8, 0
+    /* Stop   */ .word NULL,          0
+    /* Memory */ .word 0x10
+endstruct
+
+.end
