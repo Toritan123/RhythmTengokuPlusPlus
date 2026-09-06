@@ -2069,12 +2069,13 @@ script script_studio_marching_orders_tempo
     set_tempo 177
     @ The extra stage moved to its own song in e4c8e8df5 and this was left
     @ behind on s_guntai2. Volume matches the stage.
-    @ s_guntai2 handed the player track 9, a two-sound drum pattern, and
-    @ kept its other percussion track playing. Track 3 is the equivalent
-    @ here (2 pitches, 287 notes); track 6 only looks like percussion,
-    @ it runs 10 pitches high up and belongs to the arrangement.
+    @ The part to hand over is track 2: one sample (mo_tempo_16, ~140Hz,
+    @ full volume) struck 109 times on a single pitch, i.e. the marching
+    @ pulse. The tracks on the rhythm kit are not it - 3 is a quiet 4kHz
+    @ shaker texture, 4 is crash cymbals, 11 is noise hits, and 6 is
+    @ melodic (320-970Hz at full volume) despite sitting on that kit.
     set_music_volume 150
-    run mute_studio_mus_tracks, MIDI_TRACK_3
+    run mute_studio_mus_tracks, MIDI_TRACK_2
     play_music marching_orders_tempo_seqData
     run play_studio_mus_count_in
     rest 24
