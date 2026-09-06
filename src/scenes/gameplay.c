@@ -23,7 +23,6 @@ enum PauseMenuOptionsEnum {
 
 extern const struct Beatscript D_089cfda4[]; // Generic Fade-Out Sequence
 
-extern u8 sReplayingCampaign;
 
 /* MAIN GAMEPLAY SCENE */
 

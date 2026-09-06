@@ -1105,6 +1105,12 @@ void game_select_read_inputs(void) {
             levelData = get_level_data_from_id(levelID);
             set_next_scene(levelData->scene);
 
+            // Only a game or remix can re-arm a campaign below. Clearing
+            // it here rather than in that branch keeps it from surviving
+            // into the next confirm: bonus entries never touch the flag,
+            // so the notice jingle used to play again on entering them.
+            sReplayingCampaign = FALSE;
+
             switch (levelData->type) {
                 case LEVEL_TYPE_GAME:
                 case LEVEL_TYPE_REMIX:
@@ -1127,8 +1133,6 @@ void game_select_read_inputs(void) {
                         gGameSelect->campaignNotice.x = gGameSelect->cursorX;
                         gGameSelect->campaignNotice.y = gGameSelect->cursorY;
                         sReplayingCampaign = TRUE;
-                    } else {
-                        sReplayingCampaign = FALSE;
                     }
 
                     break;
