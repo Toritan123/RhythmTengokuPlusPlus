@@ -16,6 +16,7 @@ extern void *gCurrentSceneData;
 
 // Menus
 extern struct Scene scene_warning;
+extern struct Scene scene_gbp_handshake;
 extern struct Scene scene_disclaimer;
 extern struct Scene scene_title;
 extern struct Scene scene_main_menu;

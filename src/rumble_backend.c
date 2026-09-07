@@ -19,15 +19,6 @@
 
 #define R_NORMAL 0x0000
 
-#define RUMBLE_GBP_UNLOCK_FRAMES 125
-#define RUMBLE_GBP_FADE_FRAMES 16
-#define RUMBLE_GBP_UNLOCK_KEYMASK 0x030F
-#define RUMBLE_GBP_BG0CNT (BGCNT_256_PALETTE | (2 << 2))
-
-#define RUMBLE_GBP_LOGO_PALETTE_SIZE 128
-#define RUMBLE_GBP_LOGO_TILEMAP_SIZE 844
-#define RUMBLE_GBP_LOGO_TILESET_SIZE 0x4000
-
 enum RumblePlatformMode {
     RUMBLE_PLATFORM_CARTRIDGE = 0,
     RUMBLE_PLATFORM_GBP,
@@ -55,20 +46,9 @@ struct GbpCommsState {
     u16 out1;
 };
 
-extern const u8 gbp_logo_palette_bin[];
-extern const u8 gbp_logo_tiles_bin[];
-extern const u8 gbp_logo_pixels_bin[];
-
 static struct GbpCommsState sGbpComms;
 static enum RumblePlatformMode sRumblePlatformMode;
 static u32 sRumbleGbpState;
-
-static void rumble_backend_wait_for_frame(void) {
-    while (REG_VCOUNT >= 160) {
-    }
-    while (REG_VCOUNT < 160) {
-    }
-}
 
 static void rumble_backend_reset_gbp_comms(void) {
     struct GbpCommsState reset = {0};
@@ -81,50 +61,6 @@ static void rumble_backend_init_cartridge_gpio(void) {
     RUMBLE_GPIO_CONTROL = 1;
     RUMBLE_GPIO_DIRECTION = 1 << 3;
     RUMBLE_GPIO_DATA = 0;
-}
-
-static void rumble_backend_fade_gbp_splash_to_white(void) {
-    u32 frame;
-
-    REG_BLDMOD = BLDMOD_BG0_SRC | BLDMOD_BACKDROP_SRC | (BLEND_MODE_LIGHTEN << 6);
-    for (frame = 0; frame <= RUMBLE_GBP_FADE_FRAMES; frame++) {
-        REG_COLEY = (frame * 16) / RUMBLE_GBP_FADE_FRAMES;
-        rumble_backend_wait_for_frame();
-    }
-    REG_BLDMOD = 0;
-    REG_COLEY = 0;
-}
-
-static u32 rumble_backend_try_unlock_gbp(void) {
-    u32 frame;
-    u32 gbpDetected;
-
-    gbpDetected = FALSE;
-
-    REG_DISPCNT = VIDEO_MODE_4TEXT | DISPCNT_DISPLAY_BG0;
-    REG_BG0CNT = RUMBLE_GBP_BG0CNT;
-    REG_BG0HOFS = 0;
-    REG_BG0VOFS = 0;
-
-    DmaCopy16(3, gbp_logo_pixels_bin, (void *)(VRAMBase + 0x8000), RUMBLE_GBP_LOGO_TILESET_SIZE);
-    DmaCopy16(3, gbp_logo_tiles_bin, (void *)VRAMBase, RUMBLE_GBP_LOGO_TILEMAP_SIZE);
-    DmaCopy16(3, gbp_logo_palette_bin, (void *)PaletteRAMBase, RUMBLE_GBP_LOGO_PALETTE_SIZE);
-
-    for (frame = 0; frame < RUMBLE_GBP_UNLOCK_FRAMES; frame++) {
-        rumble_backend_wait_for_frame();
-        if (REG_KEY == RUMBLE_GBP_UNLOCK_KEYMASK) {
-            gbpDetected = TRUE;
-        }
-    }
-
-    rumble_backend_fade_gbp_splash_to_white();
-
-    DmaFill32(3, 0, VRAMBase, 0x18000);
-    *(u16 *)PaletteRAMBase = 0x7FFF;
-    REG_DISPCNT = DISPCNT_FORCE_BLANK;
-    REG_BG0CNT = 0;
-
-    return gbpDetected;
 }
 
 static void rumble_backend_gbp_serial_start(void) {
@@ -142,6 +78,10 @@ static void rumble_backend_gbp_serial_start(void) {
 
 void rumble_backend_serial_isr(void) {
     u32 result;
+
+    if (sRumblePlatformMode != RUMBLE_PLATFORM_GBP) {
+        return;
+    }
 
     sGbpComms.serialIn = REG_SIODATA32;
     result = 0;
@@ -217,21 +157,29 @@ void rumble_backend_serial_isr(void) {
     REG_SIOCNT |= SIO_START;
 }
 
-void rumble_backend_init(void) {
+void rumble_backend_select_platform(u32 useGbp) {
     sRumbleGbpState = RUMBLE_GBP_HARD_STOP;
-    sRumblePlatformMode = RUMBLE_PLATFORM_CARTRIDGE;
 
-    if (rumble_backend_try_unlock_gbp()) {
+    if (useGbp) {
         sRumblePlatformMode = RUMBLE_PLATFORM_GBP;
+        REG_IE |= INTERRUPT_COMM;
         REG_RCNT = R_NORMAL;
         REG_SIOCNT = SIO_32BIT | SIO_SO_HIGH;
         REG_SIOCNT |= SIO_IRQ;
         rumble_backend_reset_gbp_comms();
     } else {
+        sRumblePlatformMode = RUMBLE_PLATFORM_CARTRIDGE;
+        REG_IE &= ~INTERRUPT_COMM;
+        REG_IF = INTERRUPT_COMM;
+        REG_SIOCNT &= ~SIO_IRQ;
         rumble_backend_init_cartridge_gpio();
     }
 
     rumble_backend_set_state(FALSE);
+}
+
+void rumble_backend_init(void) {
+    rumble_backend_select_platform(FALSE);
 }
 
 void rumble_backend_update(void) {
@@ -250,6 +198,10 @@ void rumble_backend_set_state(u32 enabled) {
 #else
 
 void rumble_backend_init(void) {
+}
+
+void rumble_backend_select_platform(u32 useGbp) {
+    (void)useGbp;
 }
 
 void rumble_backend_update(void) {

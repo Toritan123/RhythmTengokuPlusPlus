@@ -126,7 +126,14 @@ void agb_main(void) {
 	REG_IME = 1;
 
 	func_0801d860(FALSE); // Init. Script Operator (Init. Static Variables)
+#ifdef RUMBLE
+	// The Game Boy Player only enables its rumble for games that show its
+	// boot logo and answer the handshake, so this has to run first.
+	init_scenes(&scene_gbp_handshake);
+	set_scene_trans_target(&scene_gbp_handshake, &scene_warning);
+#else
 	init_scenes(&scene_warning);
+#endif
 	set_scene_trans_target(&scene_warning, &scene_disclaimer);
 	set_scene_trans_target(&scene_disclaimer, &scene_title);
 	update_key_listener();
