@@ -6,6 +6,7 @@
 #include "src/scenes/reading.h"
 #include "src/scenes/studio.h"
 #include "src/code_080092cc.h"
+#include "src/rumble_backend.h"
 
 
 /* GAME SELECT SCENE */
@@ -1067,6 +1068,15 @@ void game_select_read_dpad_inputs(void) {
     }
 
     rumble_play_menu_move(); // RUMBLE spike: only call site on this branch
+#ifdef RUMBLE
+    // rumble-test probe: report whether the Game Boy Player serial link
+    // ever answered. Confirm sound = it did, error sound = it never did.
+    if (rumble_backend_gbp_handshake_ok()) {
+        play_sound(&s_menu_kettei1_seqData);
+    } else {
+        play_sound(&s_menu_error_seqData);
+    }
+#endif
 }
 
 

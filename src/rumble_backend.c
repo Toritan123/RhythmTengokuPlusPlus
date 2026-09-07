@@ -47,6 +47,7 @@ struct GbpCommsState {
 };
 
 static struct GbpCommsState sGbpComms;
+static u32 sGbpHandshakeReachedRumble; // rumble-test probe
 static enum RumblePlatformMode sRumblePlatformMode;
 static u32 sRumbleGbpState;
 
@@ -147,6 +148,7 @@ void rumble_backend_serial_isr(void) {
             if (sGbpComms.serialIn == 0x20000013) {
                 result = RUMBLE_GBP_STOP;
                 sGbpComms.stage = GBP_COMMS_RUMBLE;
+                sGbpHandshakeReachedRumble = TRUE; // rumble-test probe
             } else {
                 sGbpComms.stage = GBP_COMMS_FINALIZE;
             }
@@ -180,6 +182,11 @@ void rumble_backend_select_platform(u32 useGbp) {
 
 void rumble_backend_init(void) {
     rumble_backend_select_platform(FALSE);
+}
+
+// rumble-test probe: did the other end actually answer on the serial link?
+u32 rumble_backend_gbp_handshake_ok(void) {
+    return sGbpHandshakeReachedRumble;
 }
 
 void rumble_backend_update(void) {

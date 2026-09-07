@@ -42,15 +42,13 @@ static void gbp_handshake_scene_finish(u32 useGbp) {
     REG_DISPCNT = DISPCNT_FORCE_BLANK;
     REG_BG0CNT = 0;
 
-    rumble_backend_select_platform(useGbp);
-
-    // TEMPORARY (rumble-test branch only): the logo is no help to a player
-    // who cannot see it, so say out loud which mode we ended up in.
-    if (useGbp) {
-        play_sound(&s_menu_kettei1_seqData);  // Game Boy Player answered
-    } else {
-        play_sound(&s_menu_error_seqData);    // no GBP: cartridge mode
-    }
+    // TEMPORARY (rumble-test branch only): force GBP mode instead of trusting
+    // the key-signal detection. An emulator may implement the serial side of
+    // the Game Boy Player rumble without reproducing the key signal a real
+    // one uses to announce itself, in which case useGbp would be FALSE here
+    // and the serial handshake would never even be attempted.
+    (void)useGbp;
+    rumble_backend_select_platform(TRUE);
 }
 
 #else
