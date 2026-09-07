@@ -1,6 +1,7 @@
 #include "global.h"
 #include "scenes.h"
 #include "../rumble_backend.h"
+#include "sequence_data.h"
 
 
 #ifdef RUMBLE
@@ -42,6 +43,14 @@ static void gbp_handshake_scene_finish(u32 useGbp) {
     REG_BG0CNT = 0;
 
     rumble_backend_select_platform(useGbp);
+
+    // TEMPORARY (rumble-test branch only): the logo is no help to a player
+    // who cannot see it, so say out loud which mode we ended up in.
+    if (useGbp) {
+        play_sound(&s_menu_kettei1_seqData);  // Game Boy Player answered
+    } else {
+        play_sound(&s_menu_error_seqData);    // no GBP: cartridge mode
+    }
 }
 
 #else

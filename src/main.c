@@ -142,6 +142,11 @@ void agb_main(void) {
 		func_080013a8();
 		get_agb_random_var();
 		update_key_listener();
+#ifdef RUMBLE
+		// Drives the Game Boy Player serial exchange; without it the GBP
+		// handshake never starts and GBP rumble stays silent.
+		rumble_backend_update();
+#endif
 		D_030046a0 += 1;
 		process_scenes();
 
