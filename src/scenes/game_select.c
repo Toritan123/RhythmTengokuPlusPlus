@@ -5,6 +5,7 @@
 #include "levels.h"
 #include "src/scenes/reading.h"
 #include "src/scenes/studio.h"
+#include "src/code_080092cc.h"
 
 
 /* GAME SELECT SCENE */
@@ -1064,6 +1065,8 @@ void game_select_read_dpad_inputs(void) {
             play_sound(&s_menu_cursor1_seqData);
         }
     }
+
+    rumble_play_menu_move(); // RUMBLE spike: only call site on this branch
 }
 
 

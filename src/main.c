@@ -3,6 +3,8 @@
 #include "code_08003b28.h"
 #include "bitmap_font.h"
 #include "memory_heap.h"
+#include "code_080092cc.h"
+#include "rumble_backend.h"
 
 extern u8 haveSeenDisclaimer;
 
@@ -39,6 +41,10 @@ void func_08000224(void) {
 	init_key_listener();
 	init_time_keeper();
 	init_fast_udivsi3();
+#ifdef RUMBLE
+	rumble_backend_init();
+	rumble_init(3);
+#endif
 	init_math_sqrt();
 	mem_heap_init(get_memory_heap_start(), get_memory_heap_length());
 	task_pool_init();
